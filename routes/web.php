@@ -15,6 +15,9 @@ Route::get('/', function () {
     return view('auth.login');
 });
 
+Route::get('usuarios', function () {
+    return view('auth.register');
+});
 Auth::routes();
 
 Route::middleware(['auth'])->group(function () {
@@ -37,6 +40,7 @@ Route::middleware(['auth'])->group(function () {
         Route::resource('objetivos', 'ObjetivosController');
         Route::resource('regiones', 'RegionesController');
     });
+    
 });
 
 

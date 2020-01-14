@@ -14,6 +14,9 @@
                         </div>
                     @endif
                     <ul>
+                        @if (Auth::user()->hasRole('admin'))
+                            <li><a href="{{ url('usuarios') }}">Gestión de Usuarios</a></li>
+                        @endif
                         <li><a href="{{ url('admin/actitudes') }}">Actitudes</a></li>
                         <li><a href="{{ url('admin/asignaturas') }}">Asignaturas</a></li>
                         <li><a href="{{ url('admin/comunas') }}">Comunas</a></li>

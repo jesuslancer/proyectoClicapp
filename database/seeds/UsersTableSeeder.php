@@ -11,7 +11,7 @@ class UsersTableSeeder extends Seeder
      */
     public function run()
     {
-        $users = ['Administrador','UTP','Profesor','Alumno', 'Sostenedor'];
+        $users = ['Admin','UTP','Profesor','Alumno', 'Sostenedor'];
         foreach ($users as $user) {
             DB::table('users')->insert([
                 'name' => $user,

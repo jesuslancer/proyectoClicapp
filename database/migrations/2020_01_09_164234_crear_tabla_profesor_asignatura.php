@@ -32,6 +32,6 @@ class CrearTablaProfesorAsignatura extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('profesor_asignatura');
+        Schema::dropIfExists('profesor_asignaturas');
     }
 }

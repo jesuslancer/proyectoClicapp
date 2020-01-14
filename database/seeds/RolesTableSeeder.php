@@ -20,5 +20,26 @@ class RolesTableSeeder extends Seeder
         $role->name = 'admin';
         $role->description = 'Administrador';
         $role->save(); 
+
+
+        $role = new Role();
+        $role->name = 'UTP';
+        $role->description = 'Jefe de la Unidad Técnico Pedagógica';
+        $role->save();
+
+        $role = new Role();
+        $role->name = 'profesor';
+        $role->description = 'Profesor';
+        $role->save();
+
+        $role = new Role();
+        $role->name = 'estudiante';
+        $role->description = 'Estudiante';
+        $role->save();
+        
+        $role = new Role();
+        $role->name = 'sostenedor';
+        $role->description = 'Sostenedor';
+        $role->save();
     }
 }
