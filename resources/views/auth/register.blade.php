@@ -1,14 +1,16 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container">
+<script src="{{ asset('js/Controllers/registroUsuarioCtrl.js') }}"></script>   
+
+<div id="usuario" class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
                 <div class="card-header">{{ __('Register') }}</div>
 
                 <div class="card-body">
-                    <form method="POST" action="{{ route('register') }}">
+                    {{-- <form method="POST"a ction="/games" action="{{ route('guardarUser') }}"> --}}
                         @csrf
 
                         <div class="form-group row">
@@ -178,7 +180,7 @@
                             </div>
                             <div class="col-xs-6">
                                 <button type="submit"  class="btn btn-primary">
-                                    {{ __('Registrar') }}
+                                    {{ __('Register') }}
                                 </button>
                             </div>
                         </div>

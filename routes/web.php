@@ -39,6 +39,8 @@ Route::middleware(['auth'])->group(function () {
         Route::resource('indicadores', 'IndicadoresController');
         Route::resource('objetivos', 'ObjetivosController');
         Route::resource('regiones', 'RegionesController');
+        Route::post('guardarUser','Auth\RegisterController@create');
+
     });
     
 });
