@@ -54,14 +54,16 @@ class RegisterController extends Controller
     {
         return Validator::make($data, [
             'rol' => ['required'],
-            'name' => ['required', 'string', 'max:255'],
-            'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
-            'password' => ['required', 'string', 'min:8', 'confirmed'],
-            'apellido_paterno' => ['required', 'string', 'min:3'],
-            'apellido_materno' => ['required', 'string', 'min:3'],
-            'telefono_contacto_1' => ['required', 'string', 'min:8'],
+            'name' => ['required', 'string', 'max:100'],
+            'email' => ['required', 'string', 'email', 'max:100', 'unique:users'],
+            'password' => ['required', 'string', 'min:8','max:15', 'confirmed'],
+            'apellido_paterno' => ['required', 'string', 'min:3','max:100'],
+            'apellido_materno' => [ 'string', 'min:3','max:100'],
+            'direccion' => [ 'string', 'min:3','max:255'],
+            'telefono_contacto_1' => ['required', 'string', 'min:8','max:20'],
+            'telefono_contacto_1' => ['required', 'string', 'min:8','max:20'],
             'fecha_nac' => ['required', 'string', 'min:8'],
-            'genero' => ['required', 'string', 'min:1', 'max:1'],
+            'genero' => ['required', 'string'],
         ]);
     }
 
@@ -95,8 +97,10 @@ class RegisterController extends Controller
             'nombres' => $data['name'],
             'apellido_paterno' => $data['apellido_paterno'],
             'apellido_materno' => $data['apellido_materno'],
+            'direccion' => $data['direccion'],
             'email' => $data['email'],
             'telefono_contacto_1' => $data['telefono_contacto_1'],
+            'telefono_contacto_2' => $data['telefono_contacto_2'],
             'fecha_nac' => $data['fecha_nac'],
             'genero' => $data['genero'],
             'user_id' => $id_u,

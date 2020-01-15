@@ -29,7 +29,7 @@
                             <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('Nombres*') }}</label>
 
                             <div class="col-md-6">
-                                <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required  >
+                                 <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required   maxlength="100" minlength="3">
 
                                 @error('name')
                                     <span class="invalid-feedback" role="alert">
@@ -38,13 +38,13 @@
                                 @enderror
                             </div>
                         </div>
-<div class="form-group row">
+                        <div class="form-group row">
                             <label for="apellido1" class="col-md-4 col-form-label text-md-right">{{ __('Primer Apellido*') }}</label>
 
                             <div class="col-md-6">
-                                <input id="apellido1" type="text" class="form-control @error('Apellido') is-invalid @enderror" name="apellido_paterno" value="{{ old('apellido_paterno') }}" required  autofocus>
+                                <input id="apellido1" type="text" class="form-control @error('apellido_paterno') is-invalid @enderror" name="apellido_paterno" value="{{ old('apellido_paterno') }}" required  autofocus  maxlength="100" minlength="3" >
 
-                                @error('Apellido')
+                                @error('apellido_paterno')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
@@ -55,9 +55,9 @@
                             <label for="apellido2" class="col-md-4 col-form-label text-md-right">{{ __('Segundo Apellido') }}</label>
 
                             <div class="col-md-6">
-                                <input id="apellido2" type="text" class="form-control @error('Apellido') is-invalid @enderror" name="apellido_materno" value="{{ old('apellido_materno') }}"  autofocus>
+                                <input id="apellido2" type="text" class="form-control @error('apellido_materno') is-invalid @enderror" name="apellido_materno" value="{{ old('apellido_materno') }}" required  autofocus  maxlength="100" minlength="3">
 
-                                @error('Apellido')
+                                @error('apellido_materno')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
@@ -97,7 +97,7 @@
                             <label for="telefono" class="col-md-4 col-form-label text-md-right">{{ __('Teléfono*') }}</label>
 
                             <div class="col-md-6">
-                                <input id="telefono" type="text" class="form-control @error('Telefono') is-invalid @enderror" name="telefono_contacto_1" value="{{ old('telefono_contacto_1') }}" required  autofocus>
+                                <input id="telefono" type="text" class="form-control @error('Telefono') maxlength="20" maxlength="8" is-invalid @enderror" name="telefono_contacto_1" value="{{ old('telefono_contacto_1') }}" required  autofocus>
 
                                 @error('telefono_contacto_1')
                                     <span class="invalid-feedback" role="alert">
@@ -110,7 +110,7 @@
                             <label for="telefono2" class="col-md-4 col-form-label text-md-right">{{ __('Teléfono2') }}</label>
 
                             <div class="col-md-6">
-                                <input id="telefono2" type="text" class="form-control @error('Telefono2') is-invalid @enderror" name="telefono_contacto_2" value="{{ old('telefono_contacto_2') }}"  autofocus>
+                                <input id="telefono2" type="text" class="form-control @error('Telefono2') maxlength="20" maxlength="8" is-invalid @enderror" name="telefono_contacto_2" value="{{ old('telefono_contacto_2') }}"  autofocus>
 
                                 @error('telefono_contacto_2')
                                     <span class="invalid-feedback" role="alert">
@@ -150,7 +150,7 @@
                             <label for="password" class="col-md-4 col-form-label text-md-right">{{ __('Contraseña*') }}</label>
 
                             <div class="col-md-6">
-                                <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="new-password">
+                                <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="new-password" minlength="8" maxlength="15">
 
                                 @error('password')
                                     <span class="invalid-feedback" role="alert">
@@ -164,7 +164,7 @@
                             <label for="password-confirm" class="col-md-4 col-form-label text-md-right">{{ __('Confirme Contraseña*') }}</label>
 
                             <div class="col-md-6">
-                                <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required autocomplete="new-password">
+                                <input id="password-confirm" type="password" class="form-control" minlength="8" maxlength="15" name="password_confirmation" required autocomplete="new-password">
                             </div>
                         </div>
 
@@ -177,7 +177,7 @@
                                 </button>
                             </div>
                             <div class="col-xs-6">
-                                <button type="submit" class="btn btn-primary">
+                                <button type="submit"  class="btn btn-primary">
                                     {{ __('Registrar') }}
                                 </button>
                             </div>
