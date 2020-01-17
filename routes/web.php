@@ -20,6 +20,13 @@ Route::get('usuarios', function () {
 });
 Auth::routes();
 
+Route::get('/logout', function(){
+    Session::flush();
+    Auth::logout();
+    return Redirect::to("/")
+      ->with('message', array('type' => 'success', 'text' => 'You have successfully logged out'));
+});
+
 Route::middleware(['auth'])->group(function () {
     Route::get('/home', 'HomeController@index')->name('home');
 
