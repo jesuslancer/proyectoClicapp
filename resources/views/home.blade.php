@@ -14,7 +14,9 @@
                         </div>
                     @endif
 
-                    You are logged in!
+                    @section('content')
+    <example-component></example-component>
+@endsection
                 </div>
             </div>
         </div>

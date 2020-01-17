@@ -1,4 +1,12 @@
 {
-    "/js/app.js": "/js/app.js",
-    "/css/app.css": "/css/app.css"
+    "/js/scripts.bundle.js": "/js/scripts.bundle.js",
+    "/css/style.bundle.css": "/css/style.bundle.css",
+    "/css/skins/aside/dark.css": "/css/skins/aside/dark.css",
+    "/css/skins/aside/light.css": "/css/skins/aside/light.css",
+    "/css/skins/brand/dark.css": "/css/skins/brand/dark.css",
+    "/css/skins/brand/light.css": "/css/skins/brand/light.css",
+    "/css/skins/header/base/dark.css": "/css/skins/header/base/dark.css",
+    "/css/skins/header/base/light.css": "/css/skins/header/base/light.css",
+    "/css/skins/header/menu/dark.css": "/css/skins/header/menu/dark.css",
+    "/css/skins/header/menu/light.css": "/css/skins/header/menu/light.css"
 }
