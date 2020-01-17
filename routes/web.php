@@ -40,7 +40,8 @@ Route::middleware(['auth'])->group(function () {
         Route::resource('objetivos', 'ObjetivosController');
         Route::resource('regiones', 'RegionesController');
         Route::post('guardarUser','Auth\RegisterController@create');
-
+        Route::get('/ejecucionClase/{persona_id}', 'EjecutarController@ejecucionClase')->name('ejecucionClase');
+        Route::get('/establecimientos', 'PersonasController@establecimientos')->name('establecimientos');
     });
     
 });
