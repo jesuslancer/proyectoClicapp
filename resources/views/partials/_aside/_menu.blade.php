@@ -9,12 +9,12 @@
 					<span class="kt-menu__link-text">Dashboard</span>
 				</a>
 			</li>
-			<li class="kt-menu__item  kt-menu__item--active" aria-haspopup="true">
+			<!-- <li class="kt-menu__item  kt-menu__item--active" aria-haspopup="true">
 				<a href="{{ route('ejecucionClase',[Auth::user()->id]) }}" class="kt-menu__link ">
 					<i class="kt-menu__link-icon flaticon2-calendar-5"></i>
 					<span class="kt-menu__link-text">Ejecución de Clases</span>
 				</a>
-			</li>
+			</li> -->
 			<li class="kt-menu__item  kt-menu__item--active" aria-haspopup="true">
 				<a href="{{ route('establecimientos')}}" class="kt-menu__link ">
 					<i class="kt-menu__link-icon flaticon2-writing"></i>

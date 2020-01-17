@@ -46,9 +46,11 @@ Route::middleware(['auth'])->group(function () {
         Route::resource('indicadores', 'IndicadoresController');
         Route::resource('objetivos', 'ObjetivosController');
         Route::resource('regiones', 'RegionesController');
+        
         Route::post('guardarUser','Auth\RegisterController@create');
         Route::get('/ejecucionClase/{persona_id}', 'EjecutarController@ejecucionClase')->name('ejecucionClase');
         Route::get('/establecimientos', 'PersonasController@establecimientos')->name('establecimientos');
+        Route::get('/unidades/{persona_id}/{asignatura_id}/{nivel_id}/{curso_id}/{establecimiento_id}', 'UnidadesController@unidades_curso')->name('unidades_curso');
     });
     
 });

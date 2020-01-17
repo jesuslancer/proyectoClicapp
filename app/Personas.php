@@ -4,10 +4,8 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Persona extends Model
+class Personas extends Model
 {
-    protected $table = 'persona';
-
      protected $fillable = [
         'nombres', 'apellido_paterno', 'apellido_materno','direccion','email','telefono_contacto_1','telefono_contacto_2','fecha_nac','genero','user_id'
     ];
@@ -17,9 +15,19 @@ class Persona extends Model
      *
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */
-    public function User()
+
+    public function establecimientos()
     {
-    	// belongsTo(RelatedModel, foreignKey = user_id, keyOnRelatedModel = id)
-    	return $this->belongsTo(User::class);
+        return $this->belongsToMany('App\Establecimientos');
+    }
+
+    public function cursos()
+    {
+        return $this->belongsToMany('App\Curso','curso_persona_asignatura','persona_id','curso_id');
+    }
+
+    public function user()
+    {
+        return $this->belongsTo(User::class);
     }
 }
