@@ -3,7 +3,7 @@ window.onload = function(){
 		el: '#usuario',
 		created () {
 			//Ejecucion
-			this.culo();
+			this.prueba();
 		},
 		mounted(){
 			var self=this
@@ -13,7 +13,7 @@ window.onload = function(){
 		},
 		methods:{
 			//funciones
-			culo(){
+			prueba(){
 				alert('mml')
 			}
 		},

@@ -11,45 +11,33 @@ use App\Profesor;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Http\Request;
 
-class RegisterController extends Controller
+
+class RegistroController extends Controller
 {
-    /*
-    |--------------------------------------------------------------------------
-    | Register Controller
-    |--------------------------------------------------------------------------
-    |
-    | This controller handles the registration of new users as well as their
-    | validation and creation. By default this controller uses a trait to
-    | provide this functionality without requiring any additional code.
-    |
-    */
-
-    use RegistersUsers;
-
     /**
-     * Where to redirect users after registration.
+     * Display a listing of the resource.
      *
-     * @var string
+     * @return \Illuminate\Http\Response
      */
-    protected $redirectTo = '/home';
-
-    /**
-     * Create a new controller instance.
-     *
-     * @return void
-     */
-    public function __construct()
+    public function index()
     {
-        $this->middleware('guest');
+        $usuarios = User::all();
+        return view('admin.usuarios.index',compact('usuarios'));
     }
 
     /**
-     * Get a validator for an incoming registration request.
+     * Show the form for creating a new resource.
      *
-     * @param  array  $data
-     * @return \Illuminate\Contracts\Validation\Validator
+     * @return \Illuminate\Http\Response
      */
+    public function create()
+    {
+        return view('admin.usuarios.create');
+    }
+   
+
     protected function validator(array $data)
     {
         return Validator::make($data, [
@@ -67,24 +55,19 @@ class RegisterController extends Controller
         ]);
     }
 
-    /**
-     * Create a new user instance after a valid registration.
-     *
-     * @param  array  $data
-     * @return \App\User
-     */
-    protected function create(array $data)
+    protected function store(Request $request)
     {
-        dd($data);
        $user = User::create([
-            'name' => $data['name'],
-            'email' => $data['email'],
-            'password' => Hash::make($data['password']),
+            'name' => $request->name,
+            'email' => $request->email,
+            'password' => Hash::make($request->password),
         ]);       
         $user->roles()->attach(Role::where('name', 'user')->first());       
-        $this->create_role_user($user->id,$data['rol']);
-        $this->create_persona($user->id,$data);
-        return $user;
+        $this->create_role_user($user->id,$request->rol);
+        $this->create_persona($user->id,$request);
+       
+
+        return redirect('admin/usuarios')->with('success', 'usuario creada...!');
     }
     public function create_role_user($id_u,$id_r){
         $rol_user = RoleUser::create([

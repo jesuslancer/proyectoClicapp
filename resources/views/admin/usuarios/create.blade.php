@@ -7,10 +7,11 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">{{ __('Register') }}</div>
+                <div class="card-header">{{ __('Agregar Usuario') }}</div>
 
                 <div class="card-body">
-                    {{-- <form method="POST"a ction="/games" action="{{ route('guardarUser') }}"> --}}
+                    <form method="post" action="{{ route('usuarios.store') }}">
+
                         @csrf
 
                         <div class="form-group row">
@@ -179,8 +180,7 @@
                                 </button>
                             </div>
                             <div class="col-xs-6">
-                                <button type="submit"  class="btn btn-primary">
-                                    {{ __('Register') }}
+                                <button type="submit"  class="btn btn-primary">Agregar
                                 </button>
                             </div>
                         </div>
