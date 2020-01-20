@@ -100,4 +100,29 @@ class RegistroController extends Controller
                 'persona_id'=>$id
         ]);
     }
+
+     /**
+     * Remove the specified resource from storage.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function destroy($id)
+    {
+        $user = user::find($id);
+        if ($user) {
+            $roleUser = RoleUser::where('user_id',$user->id)->first();
+            $persona = Persona::where('user_id',$user->id)->first();
+            if ($persona) {
+                $profesor = Profesor::where('persona_id',$persona->id)->first();
+                if ($profesor) {
+                    $profesor->delete();
+                }
+                $persona->delete();
+            }
+                $roleUser->delete();    
+                $user->delete();
+        }
+        return redirect('admin/usuarios')->with('success', 'Usuario eliminado...!');
+    }
 }
