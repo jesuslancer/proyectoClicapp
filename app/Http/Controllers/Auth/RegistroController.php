@@ -67,7 +67,7 @@ class RegistroController extends Controller
         $this->create_persona($user->id,$request);
        
 
-        return redirect('admin/usuarios')->with('success', 'usuario creada...!');
+        return redirect('admin/usuarios')->with('success', 'Se creo el usuario correctamente...!');
     }
     public function create_role_user($id_u,$id_r){
         $rol_user = RoleUser::create([

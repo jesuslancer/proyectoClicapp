@@ -5,6 +5,7 @@ use App\Role;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+use App\Notifications\MyResetPassword;
 
 class User extends Authenticatable
 {
@@ -65,6 +66,16 @@ class User extends Authenticatable
         if ($this->roles()->where('name', $role)->first()) {
             return true;
         }    return false;
+    }
+     /**
+     * Send the password reset notification.
+     *
+     * @param  string  $token
+     * @return void
+     */
+    public function sendPasswordResetNotification($token)
+    {
+        $this->notify(new MyResetPassword($token));
     }
 
 }
